@@ -11,16 +11,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          '"Inter"',
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-          '"Apple Color Emoji"',
-          '"Segoe UI Emoji"',
-          '"Segoe UI Symbol"',
-          '"Noto Color Emoji"',
-        ],
+        // Para usar la fuente Kantumruy Pro por defecto
+        sans: ["Kantumruy Pro", "Inter", "ui-sans-serif"],
+        // Para usar la fuente Kantumruy Pro en un componente específico
+        // 'kantumruy': ['Kantumruy Pro', 'ui-sans-serif'],
       },
     },
   },

@@ -5,7 +5,7 @@ export const meta = () => {
   ];
 };
 
-export default function Index() {
+export default function Index() { // Esta será la landingPage
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">

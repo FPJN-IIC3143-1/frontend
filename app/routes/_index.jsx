@@ -8,11 +8,15 @@ export const meta = () => {
 };
 
 export default function Index() {
+  const GCcols = ["Comida", "Receta"];
+  const GCrows = [["Almuerzo", "Arroz con pollo al pesto"], ["Desayuno", "Yogurt con semillas y frutas"], ["Desayuno", "Tostadas con huevo y palta"]];
+  const GChearts = true;
+
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
         {/* Import green card component from components folder */}
-        <GreenCard cols={3} rows={3} hearts={true} />    
+        <GreenCard cols={GCcols} rows={GCrows} hearts={GChearts} />    
         <header className="flex flex-col items-center gap-9">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
             Welcome to <span className="sr-only">Remixx</span>

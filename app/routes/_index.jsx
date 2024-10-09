@@ -19,7 +19,7 @@ export default function Index() {
       </div>
     
       {/* Botones */}
-      <div className="flex justify-start items-center space-x-[60px] pt-[40px]"> 
+      <div className="flex justify-start items-center space-x-[50px] pt-[40px]"> 
         <LandingButton bgColor="#4F378B" textColor="#EADDFF" boxWidth={428} text="Regístrate"/>
         <LandingButton bgColor="#CCC2DC" textColor="#381E72" boxWidth={319} text="Iniciar Sesión"/>
       </div>

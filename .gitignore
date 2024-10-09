@@ -5,3 +5,5 @@ output.css
 /.cache
 /build
 .env
+/.history
+/.github

@@ -5,9 +5,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
+import { Auth0Provider } from "@auth0/auth0-react";
 import "./tailwind.css";
 
+
+// Links para las fuentes
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -21,6 +23,7 @@ export const links = () => [
   },
 ];
 
+// Layout principal de la aplicación
 export function Layout({ children }) {
   return (
     <html lang="en">
@@ -40,5 +43,20 @@ export function Layout({ children }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <Auth0Provider
+      domain={import.meta.env.VITE_AUTH0_DOMAIN}
+      clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
+      authorizationParams={{
+        redirect_uri: import.meta.env.VITE_REDIRECT_URI,
+        audience: import.meta.env.VITE_AUTH0_AUDIENCE,
+      }}
+      useRefreshTokens={true}
+      cacheLocation="localstorage"
+    >
+      <Layout>
+        <Outlet />
+      </Layout>
+    </Auth0Provider>
+  );
 }

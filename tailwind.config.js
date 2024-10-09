@@ -10,6 +10,9 @@ export default {
   // ],
   theme: {
     extend: {
+      boxShadow: {
+        landingButton: "0px 6px 10px 4px rgba(0, 0, 0, 0.15)",
+      },
       fontFamily: {
         // Para usar la fuente Kantumruy Pro por defecto
         sans: ["Kantumruy Pro", "Inter", "ui-sans-serif"],

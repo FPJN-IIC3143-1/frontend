@@ -26,6 +26,8 @@ Correr proyecto con (con vite)
 
 ```sh
 npm run dev
+npm run dev --reset-cache
+
 ```
 
 ### Remix Framework

@@ -7,6 +7,7 @@ export const meta = () => {
 
 import LandingButton from "../components/landingButton";
 
+
 export default function Index() { 
   return ( 
     <div className="Background relative bg-[#E5E9F0] w-screen h-screen pt-[100px] pl-[60px] pr-[60px] z-[1]">
@@ -19,7 +20,7 @@ export default function Index() {
       </div>
     
       {/* Botones */}
-      <div className="flex justify-start items-center space-x-[60px] pt-[40px]"> 
+      <div className="flex justify-start items-center space-x-[50px] pt-[40px]"> 
         <LandingButton bgColor="#4F378B" textColor="#EADDFF" boxWidth={428} text="Regístrate"/>
         <LandingButton bgColor="#CCC2DC" textColor="#381E72" boxWidth={319} text="Iniciar Sesión"/>
       </div>
@@ -32,9 +33,6 @@ export default function Index() {
 
       {/* Círculo grande */}
       <img src="/images/gran-ellipse-landing.png" alt="elipse" className="fixed top-[7y%] right-[0%] z-[-10]"/>
-
-      {/* Logo */}
-      <img src="/images/logo-con-titulo.png" alt="elipse" className="w-[522px] h-[126px] mt-[140px] z-[1]"/>
     </div>
   );
 }

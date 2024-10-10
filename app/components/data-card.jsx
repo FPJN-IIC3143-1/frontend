@@ -1,10 +1,11 @@
 
 
 
-export default function DataCard({leftRowInfo, rightRowInfo}) {
+export default function DataCard({boxWidth, leftRowInfo, rightRowInfo}) {
 
     return (
-      <div className="container bg-[#A3BE8C] flex justify-center items-center w-[340px] h-[170px] rounded-[20px] text-[#182F40]">
+      <div className="container bg-[#A3BE8C] flex justify-center items-center h-[170px] rounded-[20px] text-[#182F40]"
+            style={{ width: boxWidth }}>
         
         <div className="leftRow flex flex-col items-center font-bold pr-[40px]">
           {leftRowInfo.map((leftInfo, index) => (

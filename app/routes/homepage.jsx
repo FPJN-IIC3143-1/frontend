@@ -14,15 +14,29 @@ export default function HomePage() {
   return ( 
   <div className="generalContainer flex">
     <SideBar userName={{ Name: "Dafne", LastName: "Arriagada" }} />
-    <div className="Container relative flex-grow h-screen bg-[#E5E9F0] p-[60px]">
-      <div className="text-4xl text-[#182F40]">Bienvenido/a, Dafne!</div>
+    <div className="Container relative h-screen grow bg-[#E5E9F0] p-[60px]">
+      <h1 className="text-4xl text-[#182F40]">Bienvenido/a, Dafne!</h1>
 
-      <div className="text-3xl text-[#182F40] font-bold">Macros de hoy</div>
-      <DataCard leftRowInfo={["80g", "200g", "50g", "2013kcal"]} rightRowInfo={["Proteínas", "Carbohidratos", "Grasas", "Calorías"]} />
+      {/*Data Cards*/}
 
-      <div className="text-3xl text-[#182F40] font-bold">Estado despensa</div>
+      <div className="macros&pantryBox flex pt-[100px]">
+        <div className="macrosBox flex flex-col items-center ">
+          <div className="text-3xl text-[#182F40] font-bold">Macros de hoy</div>
+          <DataCard boxWidth={340} leftRowInfo={["80g", "200g", "50g", "2013kcal"]} rightRowInfo={["Proteínas", "Carbohidratos", "Grasas", "Calorías"]} />
+        </div>
+        <div className="pantryBox flex flex-col items-center ">
+          <div className="text-3xl text-[#182F40] font-bold">Estado despensa</div>
+          <DataCard  boxWidth={340} leftRowInfo={["2", "1L", "500g", "300g"]} rightRowInfo={["Huevos", "Leche Descremada", "Arroz", "Vacuno"]} />
+        </div>
+      </div>
 
-      <div className="text-3xl text-[#182F40] font-bold">Últimas notificaciones</div>
+      <div className="notificationsBox flex flex-col pt-[100px]">
+        <div className="text-3xl text-[#182F40] font-bold">Últimas notificaciones</div>
+        <DataCard  boxWidth={830} leftRowInfo={["09/09/2024", "07/09/2024", "07/09/2024", "07/09/2024"]} rightRowInfo={["Tus ingredientes frecuentes no están en tu despensa!", "No tienes pimiento!", "No hay yogurt para tus desayunos", "Se agotó el arroz en tu despensa!"]} />
+    
+      </div>
+
+
 
       
       <img src="/images/ellipse-background.png" alt="elipse" className="fixed top-[50%] left-[50%]"/>

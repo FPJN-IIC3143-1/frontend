@@ -1,7 +1,8 @@
-import { vitePlugin as remix } from "@remix-run/dev";
-import { defineConfig } from "vite";
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc'; 
+import { vitePlugin as remix } from '@remix-run/dev';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 export default defineConfig({
@@ -21,16 +22,18 @@ export default defineConfig({
   },
   server: {
     watch: {
-      usePolling: true,   // Activa polling para detectar cambios en entornos donde el file watching puede fallar
-      interval: 300,      // Intervalo de 300 ms (puede ajustarse dependiendo del rendimiento)
+      usePolling: true,
+      interval: 300,
     },
     hmr: {
-      overlay: true,      // Asegura que Vite use el overlay para errores de HMR
+      overlay: true,
     },
     ssr: {
       noExternal: [
-        '@remix-run/react', '@remix-run/node', '@auth0/auth0-react' 
-      ],  
+        '@remix-run/react', 
+        '@remix-run/node', 
+        '@auth0/auth0-react'
+      ],
     }
   },
 });

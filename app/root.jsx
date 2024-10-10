@@ -49,10 +49,8 @@ export default function App() {
       clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
       authorizationParams={{
         redirect_uri: import.meta.env.VITE_REDIRECT_URI,
-        audience: import.meta.env.VITE_AUTH0_AUDIENCE,
+        audience: "https://dev-wflfbqz11clqgo3r.us.auth0.com/api/v2/", // Opcional, elimina si no es necesario
       }}
-      useRefreshTokens={true}
-      cacheLocation="localstorage"
     >
       <Layout>
         <Outlet />

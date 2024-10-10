@@ -23,28 +23,61 @@ const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
       </div>
     
       {/* Botones */}
-      <div className="flex justify-start items-center space-x-[50px] pt-[40px]"> 
-      <LandingButton 
-        bgColor="#4F378B" 
-        textColor="#EADDFF" 
-        boxWidth={428} 
-        text="Regístrate" 
+      <button
+        style={{
+          backgroundColor: "#4F378B",
+          color: "#EADDFF",
+          width: "428px",
+          height: "72px",
+          borderRadius: "60px",
+          fontSize: "24px",
+          cursor: "pointer",
+          border: "5px solid red" // Añade un borde rojo para hacerlo visible
+        }}
+        onClick={() => {
+          console.log("Button clicked!");
+        }}
+      >
+        Regístrate
+      </button>
+
+      {/* <div className="flex justify-start items-center space-x-[50px] pt-[40px]"> 
+      <button
+        style={{
+          backgroundColor: "#4F378B",
+          color: "#EADDFF",
+          width: "428px",
+          height: "72px",
+          borderRadius: "60px",
+          fontSize: "24px",
+          cursor: "pointer"
+        }}
         onClick={() => {
           console.log("Signup button clicked");
           loginWithRedirect({ screen_hint: "signup" });
         }}
-      />
-      <LandingButton 
-        bgColor="#CCC2DC" 
-        textColor="#381E72" 
-        boxWidth={319} 
-        text="Iniciar Sesión" 
+      >
+        Regístrate
+      </button>
+
+      <button
+        style={{
+          backgroundColor: "#CCC2DC",
+          color: "#381E72",
+          width: "319px",
+          height: "72px",
+          borderRadius: "60px",
+          fontSize: "24px",
+          cursor: "pointer"
+        }}
         onClick={() => {
           console.log("Login button clicked");
           loginWithRedirect();
         }}
-      />
-      </div>
+      >
+        Iniciar Sesión
+      </button>
+    </div> */}
 
       
       

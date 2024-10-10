@@ -2,7 +2,7 @@
 
 
 export default function LandingButton({ bgColor, textColor, boxWidth, text, onClick}) {
-  console.log('onClick prop:', onClick);
+
   return <>
   
   <button 

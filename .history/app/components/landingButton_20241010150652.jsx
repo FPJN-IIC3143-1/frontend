@@ -1,8 +1,8 @@
 
 
 
-export default function LandingButton({ bgColor, textColor, boxWidth, text, onClick}) {
-  console.log('onClick prop:', onClick);
+export default function LandingButton({ bgColor, textColor, boxWidth, text}) {
+
   return <>
   
   <button 
@@ -11,7 +11,6 @@ export default function LandingButton({ bgColor, textColor, boxWidth, text, onCl
     style={{ backgroundColor: bgColor, color: textColor, width: boxWidth }}
     onMouseEnter={(e) => (e.target.style.backgroundColor = "#D0BCFE", e.target.style.color = "#381E72")}
     onMouseLeave={(e) => (e.target.style.backgroundColor = bgColor, e.target.style.color = textColor)}
-    onClick={onClick}
   > 
     {text}   
   </button>

@@ -7,6 +7,7 @@ import {
 } from "@remix-run/react";
 
 import SideBar from "../components/sidebar"; 
+import DataCard from "../components/data-card";
 
 
 export default function HomePage() { 
@@ -17,6 +18,7 @@ export default function HomePage() {
       <div className="text-4xl text-[#182F40]">Bienvenido/a, Dafne!</div>
 
       <div className="text-3xl text-[#182F40] font-bold">Macros de hoy</div>
+      <DataCard leftRowInfo={["80g", "200g", "50g", "2013kcal"]} rightRowInfo={["Proteínas", "Carbohidratos", "Grasas", "Calorías"]} />
 
       <div className="text-3xl text-[#182F40] font-bold">Estado despensa</div>
 

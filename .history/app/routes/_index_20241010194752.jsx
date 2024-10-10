@@ -1,6 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import LandingButton from "../components/landingButton";
-
 export const meta = () => {
   return [
     { title: "MealsBuddy" },
@@ -8,9 +5,12 @@ export const meta = () => {
   ];
 };
 
+import LandingButton from "../components/landingButton";
+import { useAuth0 } from '@auth0/auth0-react';
+
+
 export default function Index() { 
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-
   return ( 
     <div className="Background relative bg-[#E5E9F0] w-screen h-screen pt-[100px] pl-[60px] pr-[60px] z-[1]">
       {/* Texto principal */}
@@ -23,45 +23,27 @@ export default function Index() {
     
       {/* Botones */}
       <div className="flex justify-start items-center space-x-[50px] pt-[40px]"> 
-        {!isAuthenticated ? (
-          <>
-            <LandingButton 
-              bgColor="#4F378B" 
-              textColor="#EADDFF" 
-              boxWidth={428} 
-              text="Regístrate" 
-              onClick={() => {
-                loginWithRedirect({ screen_hint: 'signup' });
-                console.log("Signup button clicked");
-              }}
-            />
-            <LandingButton 
-              bgColor="#CCC2DC" 
-              textColor="#381E72" 
-              boxWidth={319} 
-              text="Iniciar Sesión" 
-              onClick={() => {
-                loginWithRedirect();
-                console.log("Login button clicked");
-              }}
-            />
-          </>
-        ) : (
-          <>
-            <LandingButton 
-              bgColor="#FF5C5C" 
-              textColor="#FFFFFF" 
-              boxWidth={319} 
-              text="Cerrar Sesión" 
-              onClick={() => {
-                logout({ returnTo: window.location.origin });
-                console.log("Logout button clicked");
-              }}
-            />
-          </>
-        )}
-      </div>
-
+      <LandingButton 
+        bgColor="#4F378B" 
+        textColor="#EADDFF" 
+        boxWidth={428} 
+        text="Regístrate" 
+        onClick={() => {
+          loginWithRedirect({ screen_hint: 'signup' });
+          console.log("Signup button clicked");
+        }}
+      />
+      <LandingButton 
+        bgColor="#CCC2DC" 
+        textColor="#381E72" 
+        boxWidth={319} 
+        text="Iniciar Sesión" 
+        onClick={() => {
+          loginWithRedirect();
+          console.log("Login button clicked");
+        }}
+      />
+    </div>
       {/* Círculos morados en el fondo */}
       <img src="/images/ellipse-landingpage.png" alt="elipse" className="fixed top-[10%] left-[80%] z-[-10]"/>
       <img src="/images/ellipse-landingpage.png" alt="elipse" className="fixed top-[35%] left-[70%] z-[-10]"/>

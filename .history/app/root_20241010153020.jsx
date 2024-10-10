@@ -41,19 +41,5 @@ export function Layout({ children }) {
 }
 
 export default function App() {
-  return (
-    <Auth0Provider
-      domain={import.meta.env.VITE_AUTH0_DOMAIN}
-      clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
-      authorizationParams={{
-        redirect_uri: import.meta.env.VITE_REDIRECT_URI,
-        audience: import.meta.env.VITE_AUTH0_AUDIENCE,
-        scope: "openid profile email"
-      }}
-    >
-      <Layout>
-        <Outlet />
-      </Layout>
-    </Auth0Provider>
-  );
+  return <Outlet />;
 }

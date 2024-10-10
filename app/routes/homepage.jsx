@@ -23,10 +23,12 @@ export default function HomePage() {
         <div className="macrosBox flex flex-col items-center ">
           <div className="text-3xl text-[#182F40] font-bold pb-[5px]">Macros de hoy</div>
           <DataCard boxWidth={340} leftRowInfo={["80g", "200g", "50g", "2013kcal"]} rightRowInfo={["Proteínas", "Carbohidratos", "Grasas", "Calorías"]} />
+          {/* CATA AGREGAR BOTÓN MORADO ACÁ */}
         </div>
         <div className="pantryBox flex flex-col items-center ">
           <div className="text-3xl text-[#182F40] font-bold pb-[5px]">Estado despensa</div>
           <DataCard  boxWidth={340} leftRowInfo={["2", "1L", "500g", "300g"]} rightRowInfo={["Huevos", "Leche Descremada", "Arroz", "Vacuno"]} />
+          {/* CATA AGREGAR BOTÓN MORADO ACÁ */}
         </div>
       </div>
 

@@ -7,6 +7,7 @@ export const meta = () => {
 
 import LandingButton from "../components/landingButton";
 
+
 export default function Index() { 
   return ( 
     <div className="Background relative bg-[#E5E9F0] w-screen h-screen pt-[100px] pl-[60px] pr-[60px] z-[1]">
@@ -31,10 +32,7 @@ export default function Index() {
       <img src="/images/ellipse-landingpage.png" alt="elipse" className="fixed top-[55%] left-[65%] z-[-10]"/>
 
       {/* Círculo grande */}
-      <img src="/images/gran-ellipse-landing.png" alt="elipse" className="fixed top-[77%] right-[0%] z-[-10]"/>
-
-      {/* Logo */}
-      <img src="/images/logo-con-titulo.png" alt="elipse" className="w-[522px] h-[126px] mt-[140px] z-[1]"/>
+      <img src="/images/gran-ellipse-landing.png" alt="elipse" className="fixed top-[7y%] right-[0%] z-[-10]"/>
     </div>
   );
 }

@@ -10,5 +10,26 @@ import SideBar from "../components/sidebar";
 
 
 export default function HomePage() { 
-  return (<SideBar />);
+  return ( 
+  <div className="generalContainer flex">
+    <SideBar userName={{ Name: "Dafne", LastName: "Arriagada" }} />
+    <div className="Container relative flex-grow h-screen bg-[#E5E9F0] p-[60px]">
+      <div className="text-4xl text-[#182F40]">Bienvenido/a, Dafne!</div>
+
+      <div className="text-3xl text-[#182F40] font-bold">Macros de hoy</div>
+
+      <div className="text-3xl text-[#182F40] font-bold">Estado despensa</div>
+
+      <div className="text-3xl text-[#182F40] font-bold">Últimas notificaciones</div>
+
+      
+      <img src="/images/ellipse-background.png" alt="elipse" className="fixed top-[50%] left-[50%]"/>
+
+      <img src="/images/logo-sin-texto.png" alt="elipse" className="fixed top-[80%] left-[90%]"/>
+
+      
+
+    </div>
+  </div>
+);
 }

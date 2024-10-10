@@ -47,8 +47,7 @@ export default function App() {
       clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
       authorizationParams={{
         redirect_uri: import.meta.env.VITE_REDIRECT_URI,
-        audience: import.meta.env.VITE_AUTH0_AUDIENCE,
-        scope: "openid profile email"
+        audience: import.meta.env.VITE_AUTH0_AUDIENCE, // Optional, remove if not needed
       }}
     >
       <Layout>

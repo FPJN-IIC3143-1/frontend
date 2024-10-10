@@ -49,6 +49,16 @@ export default function Index() {
         ) : (
           <>
             <LandingButton 
+              bgColor="#4F378B" 
+              textColor="#EADDFF" 
+              boxWidth={428} 
+              text="Dashboard" 
+              onClick={() => {
+                console.log("Dashboard button clicked");
+                // Add navigation to the dashboard or a specific page here
+              }}
+            />
+            <LandingButton 
               bgColor="#FF5C5C" 
               textColor="#FFFFFF" 
               boxWidth={319} 

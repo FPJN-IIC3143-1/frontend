@@ -1,6 +1,5 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
-import dotenv from 'dotenv';
 
 export default defineConfig({
   plugins: [
@@ -12,13 +11,6 @@ export default defineConfig({
       },
     }),
   ],
-  define: {
-    'process.env': {
-      VITE_AUTH0_DOMAIN: JSON.stringify(process.env.VITE_AUTH0_DOMAIN),
-      VITE_AUTH0_CLIENT_ID: JSON.stringify(process.env.VITE_AUTH0_CLIENT_ID),
-      VITE_AUTH0_AUDIENCE: JSON.stringify(process.env.VITE_AUTH0_AUDIENCE),
-    },
-  },
   server: {
     watch: {
       usePolling: true,   // Activa polling para detectar cambios en entornos donde el file watching puede fallar

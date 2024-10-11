@@ -8,6 +8,7 @@ import {
 
 import SideBar from "../components/sidebar"; 
 import DataCard from "../components/data-card";
+import LandingButton from "../components/landingButton";
 
 
 export default function HomePage() { 

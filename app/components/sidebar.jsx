@@ -1,6 +1,9 @@
 
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function SideBar({ userName }) {
+
+  const { logout } = useAuth0();
 
   const mouseEnteranimation = (e) => {
     e.target.style.color = "#D0BCFE"
@@ -30,10 +33,18 @@ export default function SideBar({ userName }) {
       <button className="IngestedFood-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Alimentos Consumidos</button>
 
       <div className="FooterSideBar flex flex-col w-[235px] items-center mt-auto">
-        <button className="CloseSesion-text" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Cerrar Sesión</button>
+        <button 
+          className="CloseSesion-text" 
+          onMouseEnter={mouseEnteranimation} 
+          onMouseLeave={mouseLeaveanimation} 
+          onClick={() => logout({ returnTo: "http://localhost:5173/homepage" })}
+        >
+          Cerrar Sesión
+        </button>
         <div className="CloseSesion-text text-2xl mt-[30px] font-bold">MealsBuddy</div>
         <div className="CloseSesion-text mt-[5px] mb-[40px]">2024 ©</div>
       </div>
+      
 
     </div>
 );

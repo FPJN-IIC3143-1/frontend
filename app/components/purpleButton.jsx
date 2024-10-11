@@ -1,7 +1,7 @@
-export default function PurpleButton({ bgColor = '#57458F', textColor = '#FFFFFF', boxWidth = 'auto', text, onClick }) {
+export default function PurpleButton({ bgColor = '#57458F', textColor = '#FFFFFF', boxWidth = '340px', text, onClick }) {
     return (
       <button 
-        className="flex justify-center items-center h-[48px] rounded-full text-lg font-medium px-6 transition-colors duration-300"
+        className="flex justify-center items-center h-[48px] rounded-full text-lg font-medium px-6 transition-colors duration-300 mt-3"
         style={{ backgroundColor: bgColor, color: textColor, width: boxWidth }}
         onMouseEnter={(e) => {
           e.target.style.backgroundColor = "#7461AC";

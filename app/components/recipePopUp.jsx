@@ -1,11 +1,11 @@
 import { useNavigate } from "@remix-run/react";
 
 export default function RecipePopUp(params) {
+  // Proceso params para mostrar receta
+  const { num, title, ingredients, steps } = params;
+
   // logica para mostrar la receta
   const navigate = useNavigate();
-
-  const num = params['recNum'];
-  console.log(num);
 
   const handleViewRecipe = () => {
     navigate('./recipe');
@@ -23,8 +23,15 @@ export default function RecipePopUp(params) {
         <div className="RecipePopUp flex justify-center items-center bg-[#4F378B] w-[600px] h-[90%] rounded-[20px] m-auto p-10">
           <div className="RecipePopUpHeader flex flex-col justify-center items-left w-full h-[10%]">
             <div className="text-2xl text-gray-100 font-bold font-serif">Receta {num}:</div>
-            <div className="RecipeTitle text-gray-300 text-4xl text-gray-150 ">Arroz con pollo y mostaza</div>
-            
+            <div className="RecipeTitle text-gray-300 text-4xl text-gray-150 ">{title}</div>
+            <div className="text-xl text-gray-100 mt-5 font-serif">Ingredientes:</div>
+            {/* Mapeo de ingredientes */}
+            <div className="RecipeIngredients text-gray-300 text-lg text-gray-150">
+              {ingredients.map((ingredient, index) => (
+                <div key={index} className="IngredientItem">{ingredient}</div>
+              ))}
+            </div>
+
             
           </div> 
         </div>

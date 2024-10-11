@@ -1,7 +1,8 @@
 
 import SideBar from "../components/sidebar";
-import ProteinSlider from "../components/protein-slider";
-import SearchBar from "../components/search-bar";
+import ProteinSlider from "../components/proteinSlider";
+import SearchBar from "../components/searchBar";
+import PurpleButton from "../components/purpleButton";
 
 import ellipseBackground from '/images/ellipse-background.png';
 
@@ -18,9 +19,9 @@ export default function RecipiesGenerator() {
         <h1 className="text-3xl text-[#182F40] font-bold">Con hambre? busca una ... <span className="text-7xl font-extralight">Receta</span></h1>
 
         <div className="slider&parragraph flex justify-evenly text-[#182F40] mt-[60px]">
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-around">
             <ProteinSlider/>
-            {/* CATA AGREGAR BOTÓN MORADO ACÁ */}
+            <PurpleButton text={"Solicita una receta"}/>
           </div>
           <p className="w-[300px] text-2xl">Te entregamos un listado de recetas que cumplen <span className="font-bold">casi perfectamente</span> tus requisitos</p>
         </div>

@@ -1,10 +1,9 @@
 
-import searchBarIcon from '/public/images/search-bar-icon.png'
+import searchBarIcon from '/images/search-bar-icon.png'
 
 export default function SearchBar() {
   
   return( 
-
     <div className="relative">
       <img src={searchBarIcon} alt='search bar icon' className='absolute left-2 top-[6px] w-[40px] h-[40px]'></img>
       <input type="text" 

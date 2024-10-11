@@ -13,7 +13,7 @@ export default function RecipeCard({boxWidth, leftRowInfo, rightRowInfo}) {
 
 
   return (
-    <div className="container bg-[#A3BE8C] flex flex-col justify-center  rounded-[20px] text-[#182F40]"
+    <div className="container bg-[#A3BE8C] flex flex-col justify-center rounded-[20px] text-[#182F40]"
           style={{ width: boxWidth }}>
       
       <div className="topContainer flex justify-center items-center pt-6">

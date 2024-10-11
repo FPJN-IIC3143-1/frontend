@@ -1,11 +1,9 @@
 import { useNavigate } from '@remix-run/react';
+import RecipePopUp from './recipePopUp';
 
 export default function RecipeCard({boxWidth, leftRowInfo, rightRowInfo}) {
   const navigate = useNavigate();
 
-  const handleViewRecipe = () => {
-    navigate('./recipe');
-  }
 
   const handleChooseRecipe = () => {
     navigate('./choose');
@@ -36,10 +34,7 @@ export default function RecipeCard({boxWidth, leftRowInfo, rightRowInfo}) {
       </div>
       
       <div className="botContainer flex flex-col justify-center items-center pb-6 pt-5">
-        <button className="RecipeButton bg-[#4F378B] hover:bg-[#D0BCFE] w-[220px] h-[53px] rounded-[16px] text-[#EADDFF] hover:text-[#381E72]"
-          onClick={handleViewRecipe}>
-          Ver Receta Completa
-        </button>
+        <RecipePopUp params={{'recNum':2, }}/>
         <button className="RecipeButton bg-[#4F378B] hover:bg-[#D0BCFE] w-[200px] h-[50px] rounded-[16px] text-[#EADDFF] hover:text-[#381E72] mt-[10px]"
           onClick={handleChooseRecipe}>
           Elegir Receta

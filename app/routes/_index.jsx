@@ -33,7 +33,6 @@ export default function Index() {
     
       {/* Botones */}
       <div className="flex justify-start items-center space-x-[50px] pt-[40px]"> 
-       
             <LandingButton 
               bgColor="#4F378B" 
               textColor="#EADDFF" 

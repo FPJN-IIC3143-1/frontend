@@ -8,7 +8,7 @@ import {
 
 import SideBar from "../components/sidebar"; 
 import DataCard from "../components/dataCard";
-import NotificationLogOut from "../components/notificationLogout";
+import NotificationLogOut from "../components/notificationLogOut";
 
 
 export default function HomePage() { 

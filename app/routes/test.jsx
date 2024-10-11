@@ -1,7 +1,7 @@
 import LandingButton from "../components/landingButton"
 import RecipeCard from "../components/recipeCard"
 import DataCard from "../components/dataCard"
-import NotificationLogOut from "../components/notificationLogout";
+import NotificationLogOut from "../components/notificationLogOut";
 
 export default function TestPage() { 
     // This is a test page to see if the components are working correctly

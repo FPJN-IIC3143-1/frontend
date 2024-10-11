@@ -4,11 +4,11 @@ export default function RecipeCard({boxWidth, leftRowInfo, rightRowInfo}) {
   const navigate = useNavigate();
 
   const handleViewRecipe = () => {
-    navigate('/recipe');
+    navigate('./recipe');
   }
 
   const handleChooseRecipe = () => {
-    navigate('/choose');
+    navigate('./choose');
   }
 
 

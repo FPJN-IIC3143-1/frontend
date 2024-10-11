@@ -7,8 +7,8 @@ import {
 } from "@remix-run/react";
 
 import SideBar from "../components/sidebar"; 
-import DataCard from "../components/data-card";
-import NotificationLogOut from "../components/notificationLogOut";
+import DataCard from "../components/dataCard";
+import NotificationLogOut from "../components/notificationLogout";
 
 
 export default function HomePage() { 

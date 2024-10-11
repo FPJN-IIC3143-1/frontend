@@ -5,11 +5,14 @@ export default function NotificationLogOut() {
   const navigate = useNavigate()
 
   const handleNotification = () => {
+    // TODO: Show notifications
     console.log("Notification")
+    // navigate("./notifications")
+    
   }
 
   const handleLogOut = () => {
-    // Log out user
+    // TODO: Log out user
     console.log("LogOut")
     navigate("/")
   }

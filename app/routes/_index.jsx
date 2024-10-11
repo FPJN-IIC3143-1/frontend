@@ -54,7 +54,7 @@ export default function Index() {
               boxWidth={319} 
               text="Cerrar Sesión" 
               onClick={() => {
-                logout({ returnTo: window.location.origin });
+                logout({ returnTo: "http://localhost:5173/homepage" });
                 console.log("Logout button clicked");
               }}
             />

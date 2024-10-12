@@ -1,3 +1,6 @@
+
+// ToDo: debería recibir como input el svg o png a usar.
+
 export default function PurpleButton({ bgColor = '#4F378B', textColor = '#FFFFFF', text, onClick }) {
     return (
       <button 

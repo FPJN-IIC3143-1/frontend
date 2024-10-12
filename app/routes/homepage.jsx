@@ -7,7 +7,7 @@ import {
 } from "@remix-run/react";
 
 import SideBar from "../components/sidebar"; 
-import DataCard from "../components/data-card";
+import DataCard from "../components/dataCard";
 import NotificationLogOut from "../components/notificationLogOut";
 
 

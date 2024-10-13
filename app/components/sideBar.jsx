@@ -47,7 +47,8 @@ export default function SideBar({ userName }) {
     };
   }, []);
 
-  return ( <>
+  return ( 
+  <div className='text-[#ffffff]'>
       
     <button
       className={`OpenOrHide fixed top-[30px] z-50 transform transition-all duration-300 ease-in-out
@@ -117,7 +118,7 @@ export default function SideBar({ userName }) {
       : '' }
       
     </div>
-  </>
+  </div>
 
 );
 }

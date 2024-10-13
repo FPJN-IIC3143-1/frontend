@@ -28,5 +28,4 @@ export default defineConfig({
       overlay: true,      // Asegura que Vite use el overlay para errores de HMR
     },
   },
-  base: '/frontend'
 });

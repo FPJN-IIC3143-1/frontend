@@ -28,8 +28,11 @@ export default function DietaryPreferences() {
   useEffect(() => {
     if (!isAuthenticated) {
       loginWithRedirect();
-    } else {
-      // Fetch user preferences and set state
+    } else if (api.tokenReady) {
+      api.getRecipes().then((recipes) => {
+        console.log("Recipes:", recipes);
+      });
+  
       api.getPreferences().then(preferences => {
         if (preferences) {
           setRestrictions({
@@ -40,7 +43,7 @@ export default function DietaryPreferences() {
           });
         }
       });
-
+  
       // Fetch daily goals and set state
       api.getDailyGoal().then(goalData => {
         if (goalData && goalData.goal) {
@@ -57,17 +60,32 @@ export default function DietaryPreferences() {
 
   // Function to handle saving macro goals
   const saveMacroGoals = () => {
-    api.updateDailyGoal(macroGoals)
+    api.setDailyGoal(macroGoals)
       .then(response => {
-        if (response.success) {
+        if (response?.message && response.message.toLowerCase().includes("successfully")) {
           alert("Objetivos guardados exitosamente");
         } else {
-          alert("Error al guardar los objetivos");
+          alert("Error al guardar los objetivos: " + (response?.message || "unknown error"));
         }
       })
       .catch(error => {
-        console.error("Error al guardar objetivos:", error);
-        alert("Error al guardar los objetivos");
+        alert("Error al guardar los objetivos: " + error.message);
+      });
+  };
+  const savePreferences = () => {
+    const selectedDiet = Object.keys(restrictions).find(key => restrictions[key] === true) || '';
+    const intolerances = Object.keys(restrictions).filter(key => restrictions[key] === true);
+
+    api.setPreferences({ diet: selectedDiet, intolerances })
+      .then(response => {
+        if (response?.message && response.message.toLowerCase().includes("successfully")) {
+          alert("Preferencias guardadas exitosamente");
+        } else {
+          alert("Error al guardar las preferencias: " + (response?.message || "unknown error"));
+        }
+      })
+      .catch(error => {
+        alert("Error al guardar las preferencias: " + error.message);
       });
   };
 
@@ -78,6 +96,7 @@ export default function DietaryPreferences() {
       [key]: !prev[key],
     }));
   };
+
   
   return ( 
     <div className="generalContainer flex">
@@ -176,6 +195,12 @@ export default function DietaryPreferences() {
                 </div>
               ))}
             </div>
+
+            {/* Save Preferences Button */}
+            <PurpleButton text="Guardar preferencias" onClick={savePreferences} />
+
+            {/* Test Get Recipes Button */}
+            {/* <PurpleButton text="Probar Obtener Recetas" onClick={testGetRecipes} /> */}
           </div>
         </div>
 

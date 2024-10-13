@@ -1,88 +1,88 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { SignJWT } from 'jose';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const secretKey = new TextEncoder().encode('-KJGzSyN_xPJFu058EIb-fTvEkFCna1QLdbERahXMMxKRJprkB4ig31ZL8klEWJl');
 
 export default function useApi() {
     const { user } = useAuth0();
-    const tokenRef = useRef(null);
+    const tokenRef = useRef();
+    const [tokenReady, setTokenReady] = useState(false);
 
-    // Generate JWT token only once
-    if (!tokenRef.current) {
-        new SignJWT({ email: user?.email || "email@email.com" })
-            .setProtectedHeader({ alg: 'HS256' })
-            .setIssuedAt()
-            .setExpirationTime('2h')
-            .sign(secretKey)
-            .then(token => {
+    useEffect(() => {
+        const generateToken = async () => {
+            try {
+                const token = await new SignJWT({ email: user?.email || "email@email.com" })
+                    .setProtectedHeader({ alg: 'HS256' })
+                    .setIssuedAt()
+                    .setExpirationTime('2h')
+                    .sign(secretKey);
                 tokenRef.current = token;
-            })
-            .catch(err => console.error("Token generation error: ", err));
-    }
+                setTokenReady(true);
+                console.log("Token generated:", token);
+            } catch (err) {
+                console.error("Token generation error: ", err);
+            }
+        };
 
-    // Helper function to create headers with Authorization
-    const getHeaders = () => ({
-        'Authorization': 'Bearer ' + tokenRef.current
-    });
+        generateToken();
+    }, [user]);
 
-    // API methods as before
+    const apiCall = async (url, method, body = null) => {
+        if (!tokenReady) {
+            console.error("Token not ready yet. Please wait...");
+            return { success: false, message: "Token not ready" };
+        }
+
+        const headers = {
+            'Authorization': `Bearer ${tokenRef.current}`,
+            'Content-Type': 'application/json'
+        };
+
+        const options = {
+            method,
+            headers,
+            body: body ? JSON.stringify(body) : undefined
+        };
+
+        try {
+            const response = await fetch(url, options);
+            if (!response.ok) {
+                const errorMsg = await response.text();
+                throw new Error(`Request failed: ${response.status} - ${errorMsg}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error(`Error with ${method} request to ${url}:`, error.message);
+            return { success: false, message: error.message };
+        }
+    };
+
     const setDailyGoal = async ({ protein, carbs, fats, calories }) => {
         const url = "https://3pndzfcvne.us-east-1.awsapprunner.com/nutrition/dailyGoal";
         const dailyGoal = { protein: String(protein), carbs: String(carbs), fats: String(fats), calories: String(calories) };
-        try {
-            const response = await fetch(url, { method: 'POST', headers: getHeaders(), body: JSON.stringify(dailyGoal) });
-            if (!response.ok) throw new Error(`Failed to set daily goal: ${response.status}`);
-            return await response.json();
-        } catch (error) {
-            console.error(error.message);
-        }
+        return await apiCall(url, 'POST', dailyGoal);
     };
 
     const getDailyGoal = async () => {
         const url = "https://3pndzfcvne.us-east-1.awsapprunner.com/nutrition/dailyGoal";
-        try {
-            const response = await fetch(url, { method: 'GET', headers: getHeaders() });
-            if (!response.ok) throw new Error(`Failed to get daily goal: ${response.status}`);
-            return await response.json();
-        } catch (error) {
-            console.error(error.message);
-        }
+        return await apiCall(url, 'GET');
     };
 
     const getPreferences = async () => {
         const url = "https://3pndzfcvne.us-east-1.awsapprunner.com/preferences";
-        try {
-            const response = await fetch(url, { method: 'GET', headers: getHeaders() });
-            if (!response.ok) throw new Error(`Failed to get preferences: ${response.status}`);
-            return await response.json();
-        } catch (error) {
-            console.error(error.message);
-        }
+        return await apiCall(url, 'GET');
     };
 
     const setPreferences = async ({ diet, intolerances }) => {
         const url = "https://3pndzfcvne.us-east-1.awsapprunner.com/preferences";
         const preferences = { diet, intolerances: intolerances.join(',') };
-        try {
-            const response = await fetch(url, { method: 'POST', headers: getHeaders(), body: JSON.stringify(preferences) });
-            if (!response.ok) throw new Error(`Failed to set preferences: ${response.status}`);
-            return await response.json();
-        } catch (error) {
-            console.error(error.message);
-        }
+        return await apiCall(url, 'POST', preferences);
     };
 
-    const getRecipes = async (diet, intolerances) => {
+    const getRecipes = async () => {
         const url = "https://3pndzfcvne.us-east-1.awsapprunner.com/recipes";
-        const urlParams = new URLSearchParams({ diet, intolerances: intolerances.join(',') });
-        try {
-            const response = await fetch(`${url}?${urlParams}`, { method: 'GET', headers: getHeaders() });
-            if (!response.ok) throw new Error(`Response status: ${response.status}`);
-            return await response.json();
-        } catch (error) {
-            console.error(error.message);
-        }
+        return await apiCall(url, 'GET');
     };
 
     return {

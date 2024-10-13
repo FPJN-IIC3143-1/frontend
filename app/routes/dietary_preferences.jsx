@@ -3,6 +3,8 @@ import SideBar from "../components/sidebar";
 import DataCard from "../components/dataCard";
 import PurpleButton from "../components/purpleButton";
 import NotificationLogOut from "../components/notificationLogOut";
+import SearchBar from "../components/SearchBar";
+
 
 export default function DietaryPreferences() { 
   // State to manage dietary restrictions
@@ -35,11 +37,7 @@ export default function DietaryPreferences() {
           <div className="flex flex-col w-1/2">
             <h3 className="text-3xl font-bold text-[#182F40]">Bloquear alimentos</h3>
             <div className="relative mt-[10px]">
-              <input 
-                type="text" 
-                placeholder="Buscar un alimento..." 
-                className="w-full h-[50px] rounded-full p-4 shadow-md"
-              />
+              <SearchBar/>
               <span className="absolute right-[15px] top-[50%] transform -translate-y-1/2 text-[#5A5A5A]">🔍</span>
             </div>
           </div>
@@ -57,6 +55,7 @@ export default function DietaryPreferences() {
               leftRowInfo={["110g", "65g", "350g", "2000kcal"]} 
               rightRowInfo={["Proteína", "Grasa", "Carbohidratos", "Calorías"]} 
             />
+            <div className="h-[40px]"></div>
             <PurpleButton text="Editar objetivos"/>
           </div>
 
@@ -71,13 +70,17 @@ export default function DietaryPreferences() {
                 { label: "Vegetariano/a", key: "vegetarian" },
               ].map((restriction) => (
                 <div key={restriction.key} className="flex items-center text-2xl">
-                  <input 
-                    type="checkbox" 
-                    checked={restrictions[restriction.key]} 
-                    onChange={() => handleCheckboxChange(restriction.key)} 
-                    className="mr-3 w-6 h-6 accent-[#A3BE8C]" 
+                 <input
+                    type="checkbox"
+                    checked={restrictions[restriction.key]}
+                    onChange={() => handleCheckboxChange(restriction.key)}
+                    className="mr-3 w-6 h-6 rounded-full border-2 border-gray-400 cursor-pointer appearance-none 
+                              checked:bg-[#5B467C] checked:border-[#5B467C] relative"
+                    style={{
+                      backgroundColor: restrictions[restriction.key] ? '#5B467C' : '#E7E7E7',
+                    }}
                   />
-                  <label>{restriction.label}</label>
+                   <label>{restriction.label}</label>
                 </div>
               ))}
             </div>

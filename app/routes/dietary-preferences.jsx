@@ -1,5 +1,5 @@
 import {useEffect, useState } from 'react';
-import SideBar from "../components/sidebar"; 
+import SideBar from "../components/sideBar";
 import DataCard from "../components/dataCard";
 import PurpleButton from "../components/purpleButton";
 import NotificationLogOut from "../components/notificationLogOut";

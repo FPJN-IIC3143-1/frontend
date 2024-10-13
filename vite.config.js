@@ -49,7 +49,9 @@ export default defineConfig({
         v3_throwAbortReason: true,
       },
     }),
+
   ],
+  build :{},
   define: {
     'process.env': {
       VITE_AUTH0_DOMAIN: JSON.stringify(process.env.VITE_AUTH0_DOMAIN),
@@ -65,13 +67,5 @@ export default defineConfig({
     hmr: {
       overlay: true,      // Asegura que Vite use el overlay para errores de HMR
     },
-  },
-  build: {
-  rollupOptions: {
-        input: {
-          main: 'index.html',
-          404: 'index.html'
-        }
-      }
   }
 });

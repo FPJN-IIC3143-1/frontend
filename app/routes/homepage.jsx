@@ -7,8 +7,10 @@ import {
 } from "@remix-run/react";
 
 import SideBar from "../components/sidebar"; 
-import DataCard from "../components/data-card";
+
+import DataCard from "../components/dataCard";
 import PurpleButton from "../components/purpleButton";
+import NotificationLogOut from "../components/notificationLogOut";
 
 
 export default function HomePage() { 
@@ -70,6 +72,7 @@ export default function HomePage() {
 
       
     </div>
+    <NotificationLogOut />
   </div>
 );
 }

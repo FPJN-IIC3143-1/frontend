@@ -1,8 +1,7 @@
-import { vitePlugin as remix } from "@remix-run/dev";
-import { defineConfig } from "vite";
 import { VitePWA } from 'vite-plugin-pwa'
+import { defineConfig } from "vite";
 import dotenv from 'dotenv';
-
+import { vitePlugin as remix } from "@remix-run/dev";
 
 export default defineConfig({
   plugins: [
@@ -51,14 +50,6 @@ export default defineConfig({
     }),
 
   ],
-  build :{
-  rollupOptions: {
-        input: {
-          main: 'index.html',
-          404: 'index.html'
-        }
-      }
-  },
   define: {
     'process.env': {
       VITE_AUTH0_DOMAIN: JSON.stringify(process.env.VITE_AUTH0_DOMAIN),

@@ -36,7 +36,7 @@ export default function SideBar({ userName }) {
       
     <button
       className={`OpenOrHide fixed top-[30px] z-50 transform transition-all duration-300 ease-in-out
-        ${isOpen ? 'left-[250px]' : 'left-[30px]'}
+        ${isOpen ? 'left-[250px]' : 'left-[20px]'}
       `}
       onClick={toggleSideBar}
     >
@@ -47,7 +47,12 @@ export default function SideBar({ userName }) {
       )}
     </button>
 
-    <div className="ContainerSideBar w-[320px] h-screen flex flex-shrink-0 flex-col items-start pl-[30px] bg-[#4C566A]">
+    <div
+        className={`ContainerSideBar w-[320px] h-screen flex flex-shrink-0 flex-col items-start pl-[30px] bg-[#4C566A]
+          transform transition-transform duration-300 ease-in-out
+          ${isOpen ? 'translate-x-0' : '-translate-x-[240px]'}
+        `}
+      >
       
       <div className="UserName-text text-2xl pt-[120px] ">{userName.Name}</div>
       <div className="UserLastName-text text-2xl">{userName.LastName}</div>

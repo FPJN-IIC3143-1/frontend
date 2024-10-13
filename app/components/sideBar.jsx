@@ -43,7 +43,7 @@ export default function SideBar({ userName }) {
     </button>
 
       <div
-        className={`ContainerSideBar h-screen bg-[#4C566A] flex flex-col items-start pl-[30px] transform transition-all duration-300 ease-in-out
+        className={`ContainerSideBar h-screen bg-[#4C566A] flex-shrink-0 flex flex-col items-start pl-[30px] transform transition-all duration-300 ease-in-out
           ${isOpen ? 'w-[320px]' : 'w-[80px]'}
         `}
       >

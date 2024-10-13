@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@remix-run/react'; // antes: react-router-dom
 import LandingButton from "../components/landingButton";
 
 export const meta = () => {
@@ -14,6 +14,7 @@ export default function Index() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
 
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     if (isAuthenticated) {

@@ -1,9 +1,22 @@
 
 import { useAuth0 } from '@auth0/auth0-react';
+import { useState } from 'react';
+import arrowLeft from '/images/arrow-left-circle.png';
+
+// 0. Entender pq se ensancha solo X
+// 1. Q se esconda solo @media
+// 2. q se pueda abrir y cerrar a gusto
+// 3. agregar ruteo a
+
 
 export default function SideBar({ userName }) {
 
   const { logout } = useAuth0();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSideBar = () => {
+    setIsOpen(!isOpen);
+  }
 
   const mouseEnteranimation = (e) => {
     e.target.style.color = "#D0BCFE"
@@ -14,9 +27,12 @@ export default function SideBar({ userName }) {
   }
 
   return (
-    <div className="ContainerSideBar w-[300px] h-screen flex flex-col items-start pl-[30px] bg-[#4C566A]">
+    <div className="ContainerSideBar w-[300px] h-screen flex flex-shrink-0 flex-col items-start pl-[30px] bg-[#4C566A]
+                    ">
+      
+      <img src={arrowLeft} className='mt-[30px] ml-[180px]' alt='left arrow - hide side bar'></img>
 
-      <div className="UserName-text text-2xl pt-[100px] ">{userName.Name}</div>
+      <div className="UserName-text text-2xl pt-[40px] ">{userName.Name}</div>
       <div className="UserLastName-text text-2xl">{userName.LastName}</div>
 
       <div className="HorizontalWhiteLine w-[210px] mt-[10px] h-[3px] bg-[#ffffff]"></div>

@@ -51,7 +51,14 @@ export default defineConfig({
     }),
 
   ],
-  build :{},
+  build :{
+  rollupOptions: {
+        input: {
+          main: 'index.html',
+          404: 'index.html'
+        }
+      }
+  },
   define: {
     'process.env': {
       VITE_AUTH0_DOMAIN: JSON.stringify(process.env.VITE_AUTH0_DOMAIN),

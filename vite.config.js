@@ -66,4 +66,12 @@ export default defineConfig({
       overlay: true,      // Asegura que Vite use el overlay para errores de HMR
     },
   },
+  build: {
+  rollupOptions: {
+        input: {
+          main: 'index.html',
+          404: 'index.html'
+        }
+      }
+  }
 });

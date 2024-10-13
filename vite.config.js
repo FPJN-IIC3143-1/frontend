@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import { VitePWA } from 'vite-plugin-pwa'
 import dotenv from 'dotenv';
 
+
 export default defineConfig({
   plugins: [
     VitePWA({

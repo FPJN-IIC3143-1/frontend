@@ -27,7 +27,8 @@ export default function DietaryPreferences() {
   useEffect(() => {
     if (!isAuthenticated) {
       loginWithRedirect();
-    }
+    } 
+    
   }, [isAuthenticated, loginWithRedirect]);
 
 

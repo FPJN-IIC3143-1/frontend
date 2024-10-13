@@ -37,8 +37,17 @@ export default function SideBar({ userName }) {
       <div className="UserName-text text-xl pt-[100px]">Historiales</div>
       <div className="HorizontalWhiteLine w-[210px] mt-[10px] h-[3px] bg-[#ffffff]"></div>
       
-      <button className="Macronutrients-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Macronutrientes</button>
-      <button className="IngestedFood-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Alimentos Consumidos</button>
+      <button className="Macronutrients-text mt-[25px]" 
+      onMouseEnter={mouseEnteranimation} 
+      onMouseLeave={mouseLeaveanimation}
+      onClick={() => navigate("/history")}
+      >Macronutrientes
+      </button>
+      <button className="IngestedFood-text mt-[25px]" 
+      onMouseEnter={mouseEnteranimation} 
+      onMouseLeave={mouseLeaveanimation}
+      onClick={() => navigate("/history")}
+      >Alimentos Consumidos</button>
 
       <div className="FooterSideBar flex flex-col w-[235px] items-center mt-auto">
         <button 

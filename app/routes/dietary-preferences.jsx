@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import SideBar from "../components/sideBar"; 
+import {useEffect, useState } from 'react';
+import SideBar from "../components/sidebar"; 
 import DataCard from "../components/dataCard";
 import PurpleButton from "../components/purpleButton";
 import NotificationLogOut from "../components/notificationLogOut";
-import SearchBar from "../components/searchBar";
-
+import SearchBar from "../components/SearchBar";
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function DietaryPreferences() { 
   // State to manage dietary restrictions
@@ -22,6 +22,14 @@ export default function DietaryPreferences() {
       [key]: !prev[key],
     }));
   };
+  
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  useEffect(() => {
+    if (!isAuthenticated) {
+      loginWithRedirect();
+    }
+  }, [isAuthenticated, loginWithRedirect]);
+
 
   return ( 
     <div className="generalContainer flex">

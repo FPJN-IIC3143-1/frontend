@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import SideBar from "../components/sidebar"; 
+import { useState } from 'react';
+import SideBar from "../components/sideBar"; 
 import DataCard from "../components/dataCard";
 import PurpleButton from "../components/purpleButton";
 import NotificationLogOut from "../components/notificationLogOut";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/searchBar";
 
 
 export default function DietaryPreferences() { 

@@ -1,5 +1,5 @@
 
-import SideBar from "../components/sidebar";
+import SideBar from "../components/sideBar";
 import ProteinSlider from "../components/proteinSlider";
 import SearchBar from "../components/searchBar";
 import PurpleButton from "../components/purpleButton";

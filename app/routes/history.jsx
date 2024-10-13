@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import SideBar from "../components/sideBar"
+import SideBar from "../components/sideBar";
 
 export default function History() {
   const { isAuthenticated, loginWithRedirect } = useAuth0();

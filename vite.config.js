@@ -1,9 +1,45 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
+import { VitePWA } from 'vite-plugin-pwa'
 import dotenv from 'dotenv';
 
 export default defineConfig({
   plugins: [
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'MealsBUddy',
+        short_name: 'mealsBuddy',
+        start_url: '/',
+        scope: '/',
+        theme_color: '#ebebeb',
+        background_color: '#ffffff',
+        icons: [
+            {
+                src: 'pwa-64x64.png',
+                sizes: '64x64',
+                type: 'image/png'
+            },
+            {
+                src: 'pwa-192x192.png',
+                sizes: '192x192',
+                type: 'image/png'
+            },
+            {
+                src: 'pwa-512x512.png',
+                sizes: '512x512',
+                type: 'image/png',
+                purpose: 'any'
+            },
+            {
+                src: 'maskable-icon-512x512.png',
+                sizes: '512x512',
+                type: 'image/png',
+                purpose: 'maskable'
+            }
+        ],
+      }, 
+    }),
     remix({
       ssr: false,
       future: {

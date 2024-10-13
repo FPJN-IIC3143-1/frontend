@@ -1,6 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { useEffect } from 'react';
-import { useNavigate } from '@remix-run/react'; // antes: react-router-dom
 import LandingButton from "../components/landingButton";
 
 export const meta = () => {
@@ -12,15 +11,13 @@ export const meta = () => {
 
 export default function Index() { 
   const { loginWithRedirect, isAuthenticated } = useAuth0();
-
-  const navigate = useNavigate();
   
 
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/homepage');
+    if (!isAuthenticated) {
+      loginWithRedirect();
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, loginWithRedirect]);
 
   return ( 
     <div className="Background relative bg-[#E5E9F0] w-screen h-screen pt-[100px] pl-[60px] pr-[60px] z-[1]">

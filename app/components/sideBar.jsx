@@ -3,11 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from 'react';
 import arrowLeft from '/images/arrow-left-circle.png';
 import arrowRight from '/images/arrow-right-circle.png';
-
-// 0. Entender pq se ensancha solo X
-// 1. Q se esconda solo @media
-// 2. q se pueda abrir y cerrar a gusto X
-// 3. agregar ruteo a todas las entradas
+import { useNavigate } from 'react-router-dom';
 
 
 export default function SideBar({ userName }) {
@@ -18,6 +14,9 @@ export default function SideBar({ userName }) {
   const toggleSideBar = () => {
     setIsOpen(!isOpen);
   }
+
+  const navigate = useNavigate();
+
 
   const mouseEnteranimation = (e) => {
     e.target.style.color = "#D0BCFE"
@@ -77,14 +76,29 @@ export default function SideBar({ userName }) {
       
       <button className="PantryConfig-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Configuración despensa</button>
       <button className="RecipiesGenerator-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Generador de Recetas</button>
-      <button className="FoodRestrictions-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Preferencias Alimenticias</button>
-      
+      <button 
+        className="FoodRestrictions-text mt-[25px]" 
+        onMouseEnter={mouseEnteranimation} 
+        onMouseLeave={mouseLeaveanimation}
+        onClick={() => navigate("/dietary_preferences")}
+      >
+        Preferencias Alimenticias
+      </button>
 
       <div className="UserName-text text-xl pt-[100px]">Historiales</div>
       <div className="HorizontalWhiteLine w-[210px] mt-[10px] h-[3px] bg-[#ffffff]"></div>
       
-      <button className="Macronutrients-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Macronutrientes</button>
-      <button className="IngestedFood-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Alimentos Consumidos</button>
+      <button className="Macronutrients-text mt-[25px]" 
+      onMouseEnter={mouseEnteranimation} 
+      onMouseLeave={mouseLeaveanimation}
+      onClick={() => navigate("/history")}
+      >Macronutrientes
+      </button>
+      <button className="IngestedFood-text mt-[25px]" 
+      onMouseEnter={mouseEnteranimation} 
+      onMouseLeave={mouseLeaveanimation}
+      onClick={() => navigate("/history")}
+      >Alimentos Consumidos</button>
 
       <div className="FooterSideBar flex flex-col w-[235px] items-center mt-auto">
         <button 
@@ -104,5 +118,6 @@ export default function SideBar({ userName }) {
       
     </div>
   </>
+
 );
 }

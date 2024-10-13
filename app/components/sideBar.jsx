@@ -1,12 +1,12 @@
 
 import { useAuth0 } from '@auth0/auth0-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import arrowLeft from '/images/arrow-left-circle.png';
 import arrowRight from '/images/arrow-right-circle.png';
 
 // 0. Entender pq se ensancha solo X
 // 1. Q se esconda solo @media
-// 2. q se pueda abrir y cerrar a gusto
+// 2. q se pueda abrir y cerrar a gusto X
 // 3. agregar ruteo a todas las entradas
 
 
@@ -26,6 +26,27 @@ export default function SideBar({ userName }) {
   const mouseLeaveanimation = (e) => {
     e.target.style.color = "#ffffff"
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1280) {
+        setIsOpen(false);
+      } else {
+        setIsOpen(true);
+      }
+    };
+
+    // Agregar el event listener
+    window.addEventListener('resize', handleResize);
+
+    // Llamar al handler inmediatamente para establecer el estado inicial
+    handleResize();
+
+    // Limpiar el event listener al desmontar el componente
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return ( <>
       

@@ -3,7 +3,7 @@ import SideBar from "../components/sideBar";
 import DataCard from "../components/dataCard";
 import PurpleButton from "../components/purpleButton";
 import NotificationLogOut from "../components/notificationLogOut";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/searchBar";
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function DietaryPreferences() { 

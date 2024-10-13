@@ -41,7 +41,6 @@ export default function Index() {
               text="Regístrate" 
               onClick={() => {
                 loginWithRedirect({ screen_hint: 'signup' });
-                console.log("Signup button clicked");
               }}
             />
             <LandingButton 
@@ -51,7 +50,6 @@ export default function Index() {
               text="Iniciar Sesión" 
               onClick={() => {
                 loginWithRedirect();
-                console.log("Login button clicked");
               }}
             />
          

@@ -4,5 +4,3 @@ output.css
 
 /.cache
 /build
-.env
-.env.production

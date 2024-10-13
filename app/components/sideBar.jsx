@@ -80,7 +80,7 @@ export default function SideBar({ userName }) {
         className="FoodRestrictions-text mt-[25px]" 
         onMouseEnter={mouseEnteranimation} 
         onMouseLeave={mouseLeaveanimation}
-        onClick={() => navigate("/dietary_preferences")}
+        onClick={() => navigate("/dietary-preferences", {replace: true})}
       >
         Preferencias Alimenticias
       </button>

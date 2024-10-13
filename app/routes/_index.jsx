@@ -1,4 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LandingButton from "../components/landingButton";
 
 export const meta = () => {
@@ -9,7 +11,15 @@ export const meta = () => {
 };
 
 export default function Index() { 
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/homepage');
+    }
+  }, [isAuthenticated, navigate]);
 
   return ( 
     <div className="Background relative bg-[#E5E9F0] w-screen h-screen pt-[100px] pl-[60px] pr-[60px] z-[1]">
@@ -23,8 +33,6 @@ export default function Index() {
     
       {/* Botones */}
       <div className="flex justify-start items-center space-x-[50px] pt-[40px]"> 
-        {!isAuthenticated ? (
-          <>
             <LandingButton 
               bgColor="#4F378B" 
               textColor="#EADDFF" 
@@ -45,21 +53,7 @@ export default function Index() {
                 console.log("Login button clicked");
               }}
             />
-          </>
-        ) : (
-          <>
-            <LandingButton 
-              bgColor="#FF5C5C" 
-              textColor="#FFFFFF" 
-              boxWidth={319} 
-              text="Cerrar Sesión" 
-              onClick={() => {
-                logout({ returnTo: window.location.origin });
-                console.log("Logout button clicked");
-              }}
-            />
-          </>
-        )}
+         
       </div>
 
       {/* Círculos morados en el fondo */}

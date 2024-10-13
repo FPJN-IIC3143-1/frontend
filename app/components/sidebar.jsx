@@ -1,9 +1,11 @@
 
 import { useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SideBar({ userName }) {
 
   const { logout } = useAuth0();
+  const navigate = useNavigate();
 
   const mouseEnteranimation = (e) => {
     e.target.style.color = "#D0BCFE"
@@ -23,8 +25,14 @@ export default function SideBar({ userName }) {
       
       <button className="PantryConfig-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Configuración despensa</button>
       <button className="RecipiesGenerator-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Generador de Recetas</button>
-      <button className="FoodRestrictions-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Preferencias Alimenticias</button>
-      
+      <button 
+        className="FoodRestrictions-text mt-[25px]" 
+        onMouseEnter={mouseEnteranimation} 
+        onMouseLeave={mouseLeaveanimation}
+        onClick={() => navigate("/dietary_preferences")}
+      >
+        Preferencias Alimenticias
+      </button>
 
       <div className="UserName-text text-xl pt-[100px]">Historiales</div>
       <div className="HorizontalWhiteLine w-[210px] mt-[10px] h-[3px] bg-[#ffffff]"></div>

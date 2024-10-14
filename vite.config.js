@@ -1,8 +1,7 @@
-import { vitePlugin as remix } from "@remix-run/dev";
-import { defineConfig } from "vite";
 import { VitePWA } from 'vite-plugin-pwa'
+import { defineConfig } from "vite";
 import dotenv from 'dotenv';
-
+import { vitePlugin as remix } from "@remix-run/dev";
 
 export default defineConfig({
   plugins: [
@@ -49,6 +48,7 @@ export default defineConfig({
         v3_throwAbortReason: true,
       },
     }),
+
   ],
   define: {
     'process.env': {
@@ -65,5 +65,5 @@ export default defineConfig({
     hmr: {
       overlay: true,      // Asegura que Vite use el overlay para errores de HMR
     },
-  },
+  }
 });

@@ -74,6 +74,16 @@ export default function SideBar({ userName }) {
 
       <div className="HorizontalWhiteLine w-[210px] mt-[10px] h-[3px] bg-[#ffffff]"></div>
 
+      
+      <button className="PantryConfig-text mt-[25px]" 
+      onMouseEnter={mouseEnteranimation} 
+      onMouseLeave={mouseLeaveanimation}
+      onClick={() => navigate("/pantry", {replace: true})}
+      >
+        Configuración despensa</button>
+      <button className="RecipiesGenerator-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Generador de Recetas</button>
+
+
       <button 
         className="FoodRestrictions-text mt-[25px] text-white" 
         onMouseEnter={mouseEnteranimation} 
@@ -84,6 +94,7 @@ export default function SideBar({ userName }) {
       </button>
       <button className="PantryConfig-text mt-[25px] text-white" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Configuración despensa</button>
       <button className="RecipiesGenerator-text mt-[25px] text-white" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Generador de Recetas</button>
+
       <button 
         className="FoodRestrictions-text mt-[25px] text-white" 
         onMouseEnter={mouseEnteranimation} 

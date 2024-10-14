@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from 'react';
 import arrowLeft from '/images/arrow-left-circle.png';
 import arrowRight from '/images/arrow-right-circle.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@remix-run/react';
 
 
 export default function SideBar({ userName }) {
@@ -69,15 +69,15 @@ export default function SideBar({ userName }) {
       >
       {isOpen ? 
       <>
-      <div className="UserName-text text-2xl pt-[120px] ">{userName.Name}</div>
-      <div className="UserLastName-text text-2xl">{userName.LastName}</div>
+      <div className="UserName-text text-2xl pt-[120px] text-white">{userName.Name}</div>
+      <div className="UserLastName-text text-2xl text-white">{userName.LastName}</div>
 
       <div className="HorizontalWhiteLine w-[210px] mt-[10px] h-[3px] bg-[#ffffff]"></div>
       
-      <button className="PantryConfig-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Configuración despensa</button>
-      <button className="RecipiesGenerator-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Generador de Recetas</button>
+      <button className="PantryConfig-text mt-[25px] text-white" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Configuración despensa</button>
+      <button className="RecipiesGenerator-text mt-[25px] text-white" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Generador de Recetas</button>
       <button 
-        className="FoodRestrictions-text mt-[25px]" 
+        className="FoodRestrictions-text mt-[25px] text-white" 
         onMouseEnter={mouseEnteranimation} 
         onMouseLeave={mouseLeaveanimation}
         onClick={() => navigate("/dietary-preferences", {replace: true})}
@@ -85,22 +85,22 @@ export default function SideBar({ userName }) {
         Preferencias Alimenticias
       </button>
 
-      <div className="UserName-text text-xl pt-[100px]">Historiales</div>
+      <div className="UserName-text text-xl pt-[100px] text-white">Historiales</div>
       <div className="HorizontalWhiteLine w-[210px] mt-[10px] h-[3px] bg-[#ffffff]"></div>
       
-      <button className="Macronutrients-text mt-[25px]" 
+      <button className="Macronutrients-text mt-[25px] text-white" 
       onMouseEnter={mouseEnteranimation} 
       onMouseLeave={mouseLeaveanimation}
       onClick={() => navigate("/history")}
       >Macronutrientes
       </button>
-      <button className="IngestedFood-text mt-[25px]" 
+      <button className="IngestedFood-text mt-[25px] text-white" 
       onMouseEnter={mouseEnteranimation} 
       onMouseLeave={mouseLeaveanimation}
       onClick={() => navigate("/history")}
       >Alimentos Consumidos</button>
 
-      <div className="FooterSideBar flex flex-col w-[235px] items-center mt-auto">
+      <div className="FooterSideBar flex flex-col w-[235px] items-center mt-auto text-white">
         <button 
           className="CloseSesion-text" 
           onMouseEnter={mouseEnteranimation} 
@@ -109,8 +109,8 @@ export default function SideBar({ userName }) {
           >
           Cerrar Sesión
         </button>
-        <div className="CloseSesion-text text-2xl mt-[30px] font-bold">MealsBuddy</div>
-        <div className="CloseSesion-text mt-[5px] mb-[40px]">2024 ©</div>
+        <div className="CloseSesion-text text-2xl mt-[30px] font-bold text-white">MealsBuddy</div>
+        <div className="CloseSesion-text mt-[5px] mb-[40px] text-white">2024 ©</div>
       </div>
 
       </>

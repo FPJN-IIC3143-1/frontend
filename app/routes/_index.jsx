@@ -1,5 +1,4 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { useEffect } from 'react';
 import LandingButton from "../components/landingButton";
 
 export const meta = () => {
@@ -10,14 +9,8 @@ export const meta = () => {
 };
 
 export default function Index() { 
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, } = useAuth0();
   
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      loginWithRedirect();
-    }
-  }, [isAuthenticated, loginWithRedirect]);
 
   return ( 
     <div className="Background relative bg-[#E5E9F0] w-screen h-screen pt-[100px] pl-[60px] pr-[60px] z-[1]">

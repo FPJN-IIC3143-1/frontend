@@ -130,7 +130,7 @@ export default function SideBar({ userName }) {
           className="CloseSesion-text" 
           onMouseEnter={mouseEnteranimation} 
           onMouseLeave={mouseLeaveanimation} 
-          onClick={() => logout({ returnTo: '/' })}
+          onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
           >
           Cerrar Sesión
         </button>

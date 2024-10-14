@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import SideBar from "../components/sideBar";
 import DataCard from '../components/dataCard';
+import NotificationLogOut from '../components/notificationLogOut';
 
 export default function History() {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -85,6 +86,7 @@ export default function History() {
         {/* Logo */}
         <img src="/images/logo-sin-texto.png" alt="logo" className="fixed bottom-5 right-5 w-20 h-20 " />
       </div>
+      <NotificationLogOut/>
     </div>
   );
 }

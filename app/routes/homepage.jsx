@@ -19,7 +19,7 @@ export default function HomePage() {
 
     <SideBar userName={{ Name: "Dafne", LastName: "Arriagada" }} />
 
-    <div className="Container relative h-screen grow bg-[#E5E9F0] p-[60px] z-[0]">
+    <div className="Container relative h-[1100px] grow bg-[#E5E9F0] p-[60px] z-[0]">
       <h1 className="text-4xl text-[#182F40]">Bienvenido/a, Dafne!</h1>
 
       {/*Data Cards*/}
@@ -28,11 +28,13 @@ export default function HomePage() {
         <div className="macrosBox flex flex-col items-center ">
           <div className="text-3xl text-[#182F40] font-bold pb-[5px]">Macros de hoy</div>
           <DataCard boxWidth={340} leftRowInfo={["80g", "200g", "50g", "2013kcal"]} rightRowInfo={["Proteínas", "Carbohidratos", "Grasas", "Calorías"]} />
+          <div className="h-[20px]"></div>
           <PurpleButton text="Editar Macros"/>
         </div>
         <div className="pantryBox flex flex-col items-center ">
           <div className="text-3xl text-[#182F40] font-bold pb-[5px]">Estado despensa</div>
           <DataCard  boxWidth={340} leftRowInfo={["2", "1L", "500g", "300g"]} rightRowInfo={["Huevos", "Leche Descremada", "Arroz", "Vacuno"]} />
+          <div className="h-[20px]"></div>
           <PurpleButton text="Editar Despensa"/>
         </div>
       </div>

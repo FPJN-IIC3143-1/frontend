@@ -1,6 +1,4 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { useEffect } from 'react';
-import { useNavigate } from '@remix-run/react'; // antes: react-router-dom
 import LandingButton from "../components/landingButton";
 
 export const meta = () => {
@@ -11,19 +9,11 @@ export const meta = () => {
 };
 
 export default function Index() { 
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
-
-  const navigate = useNavigate();
+  const { loginWithRedirect, } = useAuth0();
   
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/homepage');
-    }
-  }, [isAuthenticated, navigate]);
-
   return ( 
-    <div className="Background relative bg-[#E5E9F0] w-screen h-screen pt-[100px] pl-[60px] pr-[60px] z-[1]">
+    <div className="Background relative bg-[#E5E9F0] w-screen h-[1100px] pt-[100px] pl-[60px] pr-[60px] z-[1]">
       {/* Texto principal */}
       <div className="text-9xl font-bold text-[#182F40] max-w-[1360px]"> 
         Asesorate con el mejor* food-tracker del mercado.

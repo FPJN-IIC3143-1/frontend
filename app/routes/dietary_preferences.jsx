@@ -102,21 +102,16 @@ export default function DietaryPreferences() {
     <div className="generalContainer flex">
       <SideBar userName={{ Name: "Dafne", LastName: "Arriagada" }} />
 
-      <div className="Container relative h-screen grow bg-[#E5E9F0] p-[60px] z-[0]">
+      <div className="Container relative h-[1100px] grow bg-[#E5E9F0] p-[60px] z-[0]">
         
-        <h1 className="text-3xl font-bold text-[#182F40]">Bud te acompaña, tu decides ...</h1>
-        <h2 className="text-6xl font-thin text-[#182F40] mt-[15px]">Preferencias Alimenticias</h2>
+        <h1 className="text-3xl text-[#182F40] font-bold mt-[60px]">Bud te acompaña, tu decides ... <span className="text-7xl font-extralight">Preferencias Alimenticias</span></h1>
 
-        {/* Search Bar */}
-        <div className="blockIngredients flex mt-[50px]">
-          <div className="flex flex-col w-1/2">
-            <h3 className="text-3xl font-bold text-[#182F40]">Bloquear alimentos</h3>
-            <div className="relative mt-[10px]">
-              <SearchBar/>
-              <span className="absolute right-[15px] top-[50%] transform -translate-y-1/2 text-[#5A5A5A]">🔍</span>
+        <div className='flex grow flex-shrink-0 justify-evenly mt-[120px]'>
+          <div className='flex flex-col'>
+            <h3 className="text-3xl font-bold text-[#182F40] mb-[10px]">Bloquear alimentos</h3>
+            <SearchBar/>
             </div>
-          </div>
-          <div className="w-1/2 pl-[30px] text-xl text-[#5A5A5A] leading-snug">
+            <div className="w-[300px] pl-[30px] text-xl text-[#182F40] leading-snug">
             Busca un <span className="font-bold">alimento que no te guste</span> y no lo incluiremos en tus recetas
           </div>
         </div>
@@ -199,7 +194,6 @@ export default function DietaryPreferences() {
             {/* Save Preferences Button */}
             <PurpleButton text="Guardar preferencias" onClick={savePreferences} />
 
-            {/* Test Get Recipes Button */}
             {/* <PurpleButton text="Probar Obtener Recetas" onClick={testGetRecipes} /> */}
           </div>
         </div>

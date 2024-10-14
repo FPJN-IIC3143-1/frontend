@@ -168,7 +168,7 @@ export default function DietaryPreferences() {
           {/* Dietary Restrictions */}
           <div className="flex flex-col items-center">
             <h3 className="text-3xl font-bold text-[#182F40] mb-[10px]">Restricciones alimentarias</h3>
-            <div className="flex flex-col space-y-3">
+            <div className="flex flex-col space-y-3 text-[#182F40]">
               {[
                 { label: "Celíaco/a", key: "celiac" },
                 { label: "Intolerante a la lactosa", key: "lactoseIntolerant" },

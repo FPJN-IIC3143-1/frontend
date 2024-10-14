@@ -20,7 +20,7 @@ export default function Index() {
   }, [isAuthenticated, loginWithRedirect]);
 
   return ( 
-    <div className="Background relative bg-[#E5E9F0] w-screen h-screen pt-[100px] pl-[60px] pr-[60px] z-[1]">
+    <div className="Background relative bg-[#E5E9F0] w-screen h-[1100px] pt-[100px] pl-[60px] pr-[60px] z-[1]">
       {/* Texto principal */}
       <div className="text-9xl font-bold text-[#182F40] max-w-[1360px]"> 
         Asesorate con el mejor* food-tracker del mercado.

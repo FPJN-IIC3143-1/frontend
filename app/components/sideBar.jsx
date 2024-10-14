@@ -50,7 +50,7 @@ export default function SideBar({ userName }) {
   return ( <>
       
     <button
-      className={`OpenOrHide fixed top-[30px] z-50 transform transition-all duration-300 ease-in-out
+      className={`OpenOrHide absolute top-[30px] z-50 transform transition-all duration-300 ease-in-out
         ${isOpen ? 'left-[250px]' : 'left-[20px]'}
       `}
       onClick={toggleSideBar}
@@ -63,7 +63,7 @@ export default function SideBar({ userName }) {
     </button>
 
       <div
-        className={`ContainerSideBar h-screen bg-[#4C566A] flex-shrink-0 flex flex-col items-start pl-[30px] transform transition-all duration-300 ease-in-out
+        className={`ContainerSideBar h-[1100px] bg-[#4C566A] flex-shrink-0 flex flex-col items-start pl-[30px] transform transition-all duration-300 ease-in-out
           ${isOpen ? 'w-[320px]' : 'w-[80px]'}
         `}
       >
@@ -75,13 +75,19 @@ export default function SideBar({ userName }) {
       <div className="HorizontalWhiteLine w-[210px] mt-[10px] h-[3px] bg-[#ffffff]"></div>
 
       
-      <button className="PantryConfig-text mt-[25px]" 
+      <button className="PantryConfig-text mt-[25px] text-white" 
       onMouseEnter={mouseEnteranimation} 
       onMouseLeave={mouseLeaveanimation}
       onClick={() => navigate("/pantry", {replace: true})}
       >
-        Configuración despensa</button>
-      <button className="RecipiesGenerator-text mt-[25px]" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Generador de Recetas</button>
+        Configuración despensa
+        </button>
+      <button className="RecipiesGenerator-text mt-[25px] text-white" 
+      onMouseEnter={mouseEnteranimation} 
+      onMouseLeave={mouseLeaveanimation}
+      >
+      Generador de Recetas
+      </button>
 
 
       <button 
@@ -92,9 +98,7 @@ export default function SideBar({ userName }) {
       >
         Volver a Inicio
       </button>
-      <button className="PantryConfig-text mt-[25px] text-white" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Configuración despensa</button>
-      <button className="RecipiesGenerator-text mt-[25px] text-white" onMouseEnter={mouseEnteranimation} onMouseLeave={mouseLeaveanimation}>Generador de Recetas</button>
-
+      
       <button 
         className="FoodRestrictions-text mt-[25px] text-white" 
         onMouseEnter={mouseEnteranimation} 
@@ -119,12 +123,14 @@ export default function SideBar({ userName }) {
       onClick={() => navigate("/history")}
       >Alimentos Consumidos</button>
 
+      <div className="Separator h-[200px]"></div> 
+
       <div className="FooterSideBar flex flex-col w-[235px] items-center mt-5 text-white">
         <button 
           className="CloseSesion-text" 
           onMouseEnter={mouseEnteranimation} 
           onMouseLeave={mouseLeaveanimation} 
-          onClick={() => logout({ returnTo: "http://localhost:5173/" })}
+          onClick={() => logout({ returnTo: '/' })}
           >
           Cerrar Sesión
         </button>

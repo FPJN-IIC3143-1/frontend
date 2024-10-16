@@ -85,18 +85,9 @@ export default function SideBar({ userName }) {
       <button className="RecipiesGenerator-text mt-[25px] text-white" 
       onMouseEnter={mouseEnteranimation} 
       onMouseLeave={mouseLeaveanimation}
+      onClick={() => navigate("/recipies-generator", {replace: true})}
       >
       Generador de Recetas
-      </button>
-
-
-      <button 
-        className="FoodRestrictions-text mt-[25px] text-white" 
-        onMouseEnter={mouseEnteranimation} 
-        onMouseLeave={mouseLeaveanimation}
-        onClick={() => navigate("/homepage", {replace: true})}
-      >
-        Volver a Inicio
       </button>
       
       <button 
@@ -127,10 +118,19 @@ export default function SideBar({ userName }) {
 
       <div className="FooterSideBar flex flex-col w-[235px] items-center mt-5 text-white">
         <button 
+        className="FoodRestrictions-text mt-[25px] mb-[30px] text-white" 
+        onMouseEnter={mouseEnteranimation} 
+        onMouseLeave={mouseLeaveanimation}
+        onClick={() => navigate("/homepage", {replace: true})}
+        >
+          Volver a Inicio
+        </button>
+        
+        <button 
           className="CloseSesion-text" 
           onMouseEnter={mouseEnteranimation} 
           onMouseLeave={mouseLeaveanimation} 
-          onClick={() => logout({ returnTo: '/' })}
+          onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
           >
           Cerrar Sesión
         </button>

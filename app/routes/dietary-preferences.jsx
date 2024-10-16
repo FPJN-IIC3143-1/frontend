@@ -6,6 +6,11 @@ import SearchBar from "../components/searchBar";
 import { useAuth0 } from '@auth0/auth0-react';
 import useApi from './useApi';
 
+
+// ToDo: Layout general es INCORRECTO
+/* ToDO: pensar mejor esta vista!! está raro el flujo de edición para obj macros*/
+
+
 export default function DietaryPreferences() { 
   const { isAuthenticated, loginWithRedirect } = useAuth0();
   const api = useApi();
@@ -108,10 +113,10 @@ export default function DietaryPreferences() {
 
         <div className='flex grow flex-shrink-0 justify-evenly mt-[120px]'>
           <div className='flex flex-col'>
-            <h3 className="text-3xl font-bold text-[#182F40] mb-[10px]">Bloquear alimentos</h3>
+            <h3 className="text-3xl font-bold text-[#182F40] mb-[30px]">Bloquear alimentos</h3>
             <SearchBar/>
             </div>
-            <div className="w-[300px] pl-[30px] text-xl text-[#182F40] leading-snug">
+            <div className="w-[340px] pl-[30px] text-2xl text-[#182F40] mt-[20px]">
             Busca un <span className="font-bold">alimento que no te guste</span> y no lo incluiremos en tus recetas
           </div>
         </div>
@@ -119,69 +124,61 @@ export default function DietaryPreferences() {
         {/* Macronutrient Goals */}
         <div className="macrosContainer flex justify-around mt-[60px]">
           <div className="flex flex-col items-center">
-            <h3 className="text-3xl font-bold text-[#182F40] mb-[10px]">Objetivos macronutricionales</h3>
+            <div className="text-3xl font-bold text-[#182F40] ">Objetivos macronutricionales</div>
+            <div className="text-3xl text-[#182F40] mb-[30px]">Diarios</div>
 
-            {/* Editable Input Fields for Macronutrient Goals */}
-            <div className="flex flex-col space-y-3 text-2xl">
-              <div className="flex items-center justify-between w-[300px]">
-                <label className="font-bold text-[#5A5A5A]">Proteína:</label>
-                <input 
-                  type="number" 
-                  value={macroGoals.protein} 
-                  onChange={(e) => setMacroGoals({ ...macroGoals, protein: Number(e.target.value) })} 
-                  className="w-[100px] p-2 border rounded text-right"
-                /> g
+            {/* ToDO: pensar mejor esta vista!! está raro el flujo de edición */}
+            <div className="flex flex-col text-xl text-[#182F40]">
+              <div className="ProteinField flex items-center justify-between w-[240px] ">
+                <div className='inputField and its unit'>
+                  <input  
+                    type="number" 
+                    value={macroGoals.protein} 
+                    onChange={(e) => setMacroGoals({ ...macroGoals, protein: Number(e.target.value) })} 
+                    className="w-[100px] pt-[3px] pb-[5px] border rounded text-right"
+                    /> g
+                </div>
+                <div className="text-[#182F40]">Proteína</div>
               </div>
-              <div className="flex items-center justify-between w-[300px]">
-                <label className="font-bold text-[#5A5A5A]">Grasa:</label>
-                <input 
-                  type="number" 
-                  value={macroGoals.fats} 
-                  onChange={(e) => setMacroGoals({ ...macroGoals, fats: Number(e.target.value) })} 
-                  className="w-[100px] p-2 border rounded text-right"
-                /> g
+
+              <div className="FatField flex items-center justify-between w-[240px] ">
+                <div className='inputField and its unit'>
+                  <input  
+                    type="number" 
+                    value={macroGoals.protein} 
+                    onChange={(e) => setMacroGoals({ ...macroGoals, protein: Number(e.target.value) })} 
+                    className="w-[100px] pt-[3px] pb-[5px] border rounded text-right"
+                    /> g
+                </div>
+                <div className="text-[#182F40]">Grasa</div>
+
+                {/* FALTA CARBOHIDRATOS Y CALORÍAS */}
               </div>
-              <div className="flex items-center justify-between w-[300px]">
-                <label className="font-bold text-[#5A5A5A]">Carbohidratos:</label>
-                <input 
-                  type="number" 
-                  value={macroGoals.carbs} 
-                  onChange={(e) => setMacroGoals({ ...macroGoals, carbs: Number(e.target.value) })} 
-                  className="w-[100px] p-2 border rounded text-right"
-                /> g
-              </div>
-              <div className="flex items-center justify-between w-[300px]">
-                <label className="font-bold text-[#5A5A5A]">Calorías:</label>
-                <input 
-                  type="number" 
-                  value={macroGoals.calories} 
-                  onChange={(e) => setMacroGoals({ ...macroGoals, calories: Number(e.target.value) })} 
-                  className="w-[100px] p-2 border rounded text-right"
-                /> kcal
-              </div>
+
             </div>
 
             <div className="h-[40px]"></div>
             <PurpleButton text="Guardar objetivos" onClick={saveMacroGoals}/>
           </div>
 
+
           {/* Dietary Restrictions */}
           <div className="flex flex-col items-center">
-            <h3 className="text-3xl font-bold text-[#182F40] mb-[10px]">Restricciones alimentarias</h3>
-            <div className="flex flex-col space-y-3 text-[#182F40]">
+            <h3 className="text-3xl font-bold text-[#182F40] mb-[30px]">Restricciones alimentarias</h3>
+            <div className="flex flex-col text-[#182F40]">
               {[
                 { label: "Celíaco/a", key: "celiac" },
                 { label: "Intolerante a la lactosa", key: "lactoseIntolerant" },
                 { label: "Vegano/a", key: "vegan" },
                 { label: "Vegetariano/a", key: "vegetarian" },
               ].map((restriction) => (
-                <div key={restriction.key} className="flex items-center text-2xl">
+                <div key={restriction.key} className="flex items-center text-2xl mb-[15px]">
                   <input
                     type="checkbox"
                     checked={restrictions[restriction.key]}
                     onChange={() => handleCheckboxChange(restriction.key)}
-                    className="mr-3 w-6 h-6 rounded-full border-2 border-gray-400 cursor-pointer appearance-none 
-                              checked:bg-[#5B467C] checked:border-[#5B467C] relative"
+                    className="mr-[20px] w-[30px] h-[30px] rounded-full cursor-pointer appearance-none 
+                              checked:bg-[#5B467C] relative"
                     style={{
                       backgroundColor: restrictions[restriction.key] ? '#5B467C' : '#E7E7E7',
                     }}
@@ -191,10 +188,8 @@ export default function DietaryPreferences() {
               ))}
             </div>
 
-            {/* Save Preferences Button */}
-            <PurpleButton text="Guardar preferencias" onClick={savePreferences} />
-
-            {/* <PurpleButton text="Probar Obtener Recetas" onClick={testGetRecipes} /> */}
+            <div className='spacer h-[25px]'></div>
+            <PurpleButton text="Guardar preferencias" onClick={savePreferences}/>
           </div>
         </div>
 

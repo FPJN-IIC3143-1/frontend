@@ -17,7 +17,6 @@ export default function RecipiesGenerator() {
       <SideBar userName={{ Name: "Dafne", LastName: "Arriagada" }} />
 
       <div className="ContainerBody relative h-[1100px] grow bg-[#E5E9F0] p-[60px] z-[0] overflow-y-hidden">
-        {/* P - COMPONENTE NOTIS+LOG-OUT */}
 
         <h1 className="text-3xl text-[#182F40] font-bold">Con hambre? busca una ... <span className="text-7xl font-extralight">Receta</span></h1>
 
